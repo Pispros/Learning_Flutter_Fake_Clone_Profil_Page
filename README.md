@@ -1,6 +1,8 @@
-# exercice_ui
+# Exercice_ui
 
-A new Flutter project.
+# Final result
+
+<img src="result.png">
 
 ## Getting Started
 

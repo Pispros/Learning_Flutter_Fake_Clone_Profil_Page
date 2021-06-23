@@ -259,7 +259,7 @@ class HomePage extends StatelessWidget {
                     ),
                    
                     Text(
-                      "Célibataire endurci",
+                      "Célibataire",
                       style: TextStyle(
                         fontWeight: FontWeight.w100,
                         fontSize: 16,
@@ -313,111 +313,60 @@ class HomePage extends StatelessWidget {
 
   Container friendList()
   {
+    Map<String, String> nameFilePath = {
+        "Dadja" : "https://images.pexels.com/photos/4511372/pexels-photo-4511372.jpeg",
+        "Prosper" : "https://images.pexels.com/photos/3692621/pexels-photo-3692621.jpeg?cs=srgb&dl=pexels-cottonbro-3692621.jpg&fm=jpg/",
+        "Fantomas" : "https://images.pexels.com/photos/6389819/pexels-photo-6389819.jpeg?cs=srgb&dl=pexels-djordje-cvetkovic-6389819.jpg&fm=jpg",
+        "Aribaariba" : "https://images.pexels.com/photos/4932473/pexels-photo-4932473.jpeg?cs=srgb&dl=pexels-skyler-ewing-4932473.jpg&fm=jpg",
+        "ninjamer" : "https://images.pexels.com/photos/6758064/pexels-photo-6758064.jpeg?cs=srgb&dl=pexels-jill-burrow-6758064.jpg&fm=jpg"
+    };
+
+    List<Widget> friendListContainer = [];
+
+    nameFilePath.forEach((key, value) {
+      friendListContainer.add(
+        Container(
+          margin: EdgeInsets.only(left: 7),
+         
+          child:Column(
+              children: [
+
+                Container(
+                  height: 270,
+                  width: 220,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(value),
+                        fit: BoxFit.fill
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(20))
+                    )
+                ),
+
+                Container(
+                  margin: EdgeInsets.only(top: 7),
+                  child: Text(
+                      key,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 17
+                      ),
+                  ),
+                )
+                
+
+              ],
+            )) ,
+        );      
+    });
+
     return Container(
           margin: EdgeInsets.only(bottom: 30, top: 5),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-            children: [
-
-                Container(
-                  height: 270,
-                  width: 220,
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                            BoxShadow(
-                            color: Colors.grey,
-                            offset: Offset(7,7)
-                          ),
-                      ],
-                      image: DecorationImage(
-                        image: NetworkImage("https://images.pexels.com/photos/4511372/pexels-photo-4511372.jpeg"),
-                        fit: BoxFit.fill
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                   )
-                ),
-
-                 Container(
-                  height: 270,
-                  width: 220,
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                            BoxShadow(
-                            color: Colors.grey,
-                            offset: Offset(7,7)
-                          ),
-                      ],
-                      image: DecorationImage(
-                        image: NetworkImage("https://images.pexels.com/photos/4511372/pexels-photo-4511372.jpeg"),
-                        fit: BoxFit.fill
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                   )
-                ),
-
-                 Container(
-                  height: 270,
-                  width: 220,
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                            BoxShadow(
-                            color: Colors.grey,
-                            offset: Offset(7,7)
-                          ),
-                      ],
-                      image: DecorationImage(
-                        image: NetworkImage("https://images.pexels.com/photos/4511372/pexels-photo-4511372.jpeg"),
-                        fit: BoxFit.fill
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                   )
-                ),
-
-                 Container(
-                  height: 270,
-                  width: 220,
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                            BoxShadow(
-                            color: Colors.grey,
-                            offset: Offset(7,7)
-                          ),
-                      ],
-                      image: DecorationImage(
-                        image: NetworkImage("https://images.pexels.com/photos/4511372/pexels-photo-4511372.jpeg"),
-                        fit: BoxFit.fill
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                   )
-                ),
-
-                 Container(
-                  height: 270,
-                  width: 220,
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                            BoxShadow(
-                            color: Colors.grey,
-                            offset: Offset(7,7)
-                          ),
-                      ],
-                      image: DecorationImage(
-                        image: NetworkImage("https://images.pexels.com/photos/4511372/pexels-photo-4511372.jpeg"),
-                        fit: BoxFit.fill
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                   )
-                ),
-
-
-            ],
-          ),
+            children: friendListContainer
+           ),
           )
           
     );
